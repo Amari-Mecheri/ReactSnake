@@ -1,38 +1,155 @@
-.App {
+:root{
+  --headerBackGroundColor: rgb(8, 67, 177);
+  --headerForeColor: rgb(239, 243, 3);
+  --boardViewBackGroundColor: rgb(8, 67, 177);
+  --stateViewBackGroundColor: rgb(8, 67, 177);
+  --stateViewForeColor: rgb(243, 247, 4);
+  --messageViewBackGroundColor: rgb(59, 219, 86);
+  --messageViewForeColor: rgb(2, 32, 6);
+}
+
+.page{
+  width: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 40px 100%;  
+}
+
+.header{
+  position: relative;
+  height: 40px;
+  grid-row:1;
+  grid-column:1;
+  border: yellow 2px solid;
+  background-color: var(--headerBackGroundColor);
+  color: var(--headerForeColor);
+}
+
+.content{
+  grid-row:2;
+  grid-column:1;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 100%;
+}
+
+.snakeGame{
+  grid-row:1;
+  grid-column:1;
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-template-rows: 140px 240px auto;  
+}
+.board{
+  grid-row:1/4;
+  grid-column:1;
+  border: yellow 2px solid;
+  background-color: var(--boardViewBackGroundColor);
+}
+
+.state{
+  grid-row:1;
+  grid-column:2;
+  width: 200px;
+  border: yellow 2px solid;
+  background-color: var(--stateViewBackGroundColor);
+  color: var(--stateViewForeColor);
+}
+
+.stateView{
+  padding-top: 6px;
+  padding-left: 4px;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  text-align: left;
+}
+
+.stateHeadersView{
+  /* text-shadow: 1px 5px 2px black, 0 0 25px purple, 0 0 5px wheat; */
+  grid-row: 1;
+  grid-column: 1;
+  padding-top: 6px;
+  padding-left: 4px;
+  text-align: left;
+}
+
+/* .valuesView{
+  text-shadow: 1px 5px 2px black, 0 0 25px purple, 0 0 5px wheat;
+} */
+
+.TitleView{
+  width: 100%;
+  margin: 0;
+  position: absolute;
+  color: var(--headerForeColor);
+  font-size: 23px;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.message{
+  grid-row:3;
+  grid-column:2;
+  overflow: hidden;
+  height: 20px;
+  width: 200px;
+  border: yellow 2px solid;
+  background-color: var(--messageViewBackGroundColor);
+  color: var(--messageViewForeColor);
+  text-shadow: 1px 1px 2px pink, 0 0 25px black, 0 0 5px purple;
+}
+
+.help{
+  grid-row:2;
+  grid-column:2;
   text-align: center;
+  border: yellow 2px solid;
+  padding-top: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.spot{
+  height: 10px;
+  width: 10px;
+  background-color: var(--boardViewBackGroundColor);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@keyframes title {
+  0%   {scale: 0%;}
+  50%  {scale: 200%;}
+  100% {scale: 100%;}
+}
+/* 
+.pop-outin {
+  margin-left: auto;
+  margin-right: auto;
+  animation: 2s anim-popoutin ease infinite;
+}
+
+@keyframes anim-popoutin {
+  0% {
+    color: black;
+    transform: scale(0);
+    opacity: 0;
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0);
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  25% {
+    color: red;
+    transform: scale(2);
+    opacity: 1;
+    text-shadow: 3px 10px 5px rgba(0, 0, 0, 0.5);
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    color: black;
+    transform: scale(1);
+    opacity: 1;
+    text-shadow: 1px 0 0 rgba(0, 0, 0, 0);
   }
-}
+  100% {
+    
+    transform: scale(1);
+    opacity: 1;
+    text-shadow: 1px 0 0 rgba(0, 0, 0, 0);
+  }
+} */
+
