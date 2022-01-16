@@ -25,7 +25,7 @@ class gameBoard {
 		return this.clearBoard()
 	}
 
-	createBoard(size: Size){
+	private createBoard(size: Size){
 
 		// creates a slice of slices (2d slice)
 		if (size.Width < 0 || size.Height < 0) {
@@ -39,7 +39,7 @@ class gameBoard {
 		return null
 	}
 
-	clearBoard(): Errors {
+	private clearBoard(): Errors {
 		// fills the gameBoard with FreeSpaces
 		for(let x=0; x<this.board.length;x++){
 			for(let y=0; y<this.board[x].length;y++){
@@ -176,7 +176,7 @@ class gameBoard {
 		return [oldValue, listSprite, err]
 	}
 
-	getOldValue(position: Position) : [number, Errors] {	
+	private getOldValue(position: Position) : [number, Errors] {	
 		// Gets the value at the position but checks the tail position
 		let [tailPosition, err] = this.movingSnake.Tail()
 		if( err != null) return [0, err]
@@ -192,7 +192,7 @@ class gameBoard {
 		return [oldValue, err]
 	}
 
-	actualMove(position: Position, oldValue: number):[listSprite: Sprite[], err: Errors] {
+	private actualMove(position: Position, oldValue: number):[listSprite: Sprite[], err: Errors] {
 
 		// has the snake eaten a candy?
 		if (oldValue === CandyBody) {
@@ -221,7 +221,7 @@ class gameBoard {
 			{Value: SnakePart,Position: position}], err]
 	}
 
-	cell(position: Position): [number, Errors] {
+	private cell(position: Position): [number, Errors] {
 
 		if (this.size.Width <= 0 || this.size.Height <= 0) return [0, ErrInvalidSize]
 
@@ -230,7 +230,7 @@ class gameBoard {
 		return [this.board[position.X][position.Y], null]
 	}
 
-	setCell(position: Position, value: number): Errors{
+	private setCell(position: Position, value: number): Errors{
 
 		if (this.size.Width <= 0 || this.size.Height <= 0) return ErrInvalidSize
 		
@@ -241,7 +241,7 @@ class gameBoard {
 		return null
 	}
 
-	checkPosition(position: Position): boolean {
+	private checkPosition(position: Position): boolean {
 
 		if (position.X < 0 || position.X >= this.size.Width) return false
 		
@@ -250,7 +250,7 @@ class gameBoard {
 		return true
 	}
 
-	translatePosition(requestedPosition: Position): [Position, Errors] {
+	private translatePosition(requestedPosition: Position): [Position, Errors] {
 		// The position is kept inside the board
 		// If it gets out one side, it enters the other side
 

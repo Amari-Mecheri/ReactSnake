@@ -25,7 +25,7 @@ function SnakeGame(){
     const [snakePosition,setSnakePosition] = useState(new Position(0,0));
 
     useEffect(() => {
-        function clearBoardView(){
+        function clearBoardView(): void{
             for( let x=0; x<boardSize.Height; x++)
               for( let y=0; y<boardSize.Width; y++)
                 clearPixel(x,y)
@@ -43,7 +43,7 @@ function SnakeGame(){
             return newBoardSize
         }
 
-        function launchGame(){
+        function launchGame(): void{
             const interval = setInterval(() => {
                 if( aGameState.GameInProgress())
                 {
@@ -58,22 +58,28 @@ function SnakeGame(){
                 } else clearInterval(interval);
             }, refreshInterval);      
         }
+        
+        function initGame(): void {
+          if (aGameState.InitBoard(boardSize) == null) {
+            clearBoardView();
+            const [listSprite, err] = aGameState.CreateObjects();
+  
+            if (err == null)
+              displayObjects(listSprite);
+          }
+        }
 
         function handleKey(e: KeyboardEvent) {
-            handleKeyDown(e,launchGame,clearBoardView,updateBoardSize)
+            handleKeyDown(e,launchGame,initGame,updateBoardSize)
         }
 
-        if (aGameState.InitBoard(boardSize) == null) {
-            clearBoardView()
-            const [listSprite, err] = aGameState.CreateObjects();
-    
-            if (err == null)
-                displayObjects(listSprite);
-        }
+        initGame();
 
         document.addEventListener("keydown", handleKey);
         
         return () => document.removeEventListener("keydown", handleKey);
+
+
       }, [boardSize]);
 
     return (
@@ -96,7 +102,7 @@ function SnakeGame(){
       );
 }
 
-function handleKeyDown(e:KeyboardEvent,launchGame: Function, clearBoardView: Function,
+function handleKeyDown(e:KeyboardEvent,launchGame: Function, initGame: Function,
     updateBoardSize: Function){
     const key = e.key;
     switch (key) {
@@ -125,12 +131,7 @@ function handleKeyDown(e:KeyboardEvent,launchGame: Function, clearBoardView: Fun
       case " " :
         if(!aGameState.GameInProgress()){
           if(aGameState.Dirty()){
-            clearBoardView()
-            aGameState.clearBoard()
-
-            const [listSprite, err] = aGameState.CreateObjects()
-
-            if(err == null) displayObjects(listSprite)
+            initGame()
           }
           aGameState.Start()
           launchGame()
