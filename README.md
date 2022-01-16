@@ -5,7 +5,7 @@ https://github.com/Amari-Mecheri
 ## Architecture of ReactSnake:
 - This version is a port of GoSnake to React + TypeScript
 - this project was bootstrapped with [npx create-react-app reactsnake --template typescript]
-<br>
+
 ### The model: from go to TypeScript
 <br>* TypeScript was used since it allows type checking and intellisense
 <br>* src/gamelogic contains the .ts files that are adaptation from the corresponding go version
