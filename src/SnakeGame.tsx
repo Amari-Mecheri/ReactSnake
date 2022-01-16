@@ -23,7 +23,6 @@ function SnakeGame(){
     const [highScore,setHighScore] = useState(aGameState.HighScore());
     const [snakeLength,setSnakeLength] = useState(aGameState.SnakeSize()[0]);
     const [snakePosition,setSnakePosition] = useState(new Position(0,0));
-    //getComputedStyle(document.documentElement).setProperty('--boardViewBackGroundColor',"green")
 
     useEffect(() => {
         function clearBoardView(){
@@ -120,7 +119,6 @@ function handleKeyDown(e:KeyboardEvent,launchGame: Function, clearBoardView: Fun
       case "Enter":
         if(!aGameState.GameInProgress()){
             updateBoardSize()
-            //initStateBoard(boardSize)
         }
         break;
   
@@ -143,10 +141,6 @@ function handleKeyDown(e:KeyboardEvent,launchGame: Function, clearBoardView: Fun
         break;
     }
   }
-
-
-  
-
   
   function displayObjects(listSprite: Sprite[]){
     if(listSprite){

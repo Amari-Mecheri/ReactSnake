@@ -20,8 +20,8 @@ function BoardView(size:Size){
                     return range(0,Width-1).map((x: number)=>{
                         const id = "spot"+x.toString().padStart(2,"0")+y.toString().padStart(2,"0")
                         const style ={
-                            gridcolumn:{x},
-                            gridrow:{y},
+                            gridcolumn:`${x+1}`,
+                            gridrow:`${y+1}`,
                         } as React.CSSProperties
                         return <div className="spot" id={id} style={style} key={id}></div>
                     })
@@ -33,6 +33,6 @@ function BoardView(size:Size){
 
 function range(start: number, end : number) {
     return Array(end - start + 1).fill(0).map((_, idx) => start + idx)
-  }
+}
 
 export default React.memo(BoardView);
