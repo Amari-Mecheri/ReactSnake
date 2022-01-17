@@ -21,7 +21,7 @@ https://github.com/Amari-Mecheri
     <br>
 
 ### The views: The game rendering
-- Each go views was converted to a react component
+- Each go view was converted to a react component
     * Although it is a simple game, `reredering and performance issues` are immediatly visible.
     <br>=> The use of `react.memo` helped improve performance
     <br><br>
