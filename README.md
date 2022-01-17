@@ -10,10 +10,10 @@ https://github.com/Amari-Mecheri
 - TypeScript was used since it allows type checking and intelliSense
 - `src/gamelogic` contains the .ts files that are adaptation from the corresponding go version
 - Except from synthax, `another difference` is in the way JS and Go handle storage of objects into slices/arrays.
-    * JS stores references to each object, hense aSnake.body[0] returns a reference to an object of type Position.
+    * JS stores references to each object, hence aSnake.body[0] returns a reference to an object of type Position.
     <br>    var pos= aSnake.body[0]; pos.X = 32 => is the same as aSnake.body[0].X=32
     <br><br>
-    * Go stores values,  hense aSnake.body[0] returns a value of type Position
+    * Go stores values,  hence aSnake.body[0] returns a value of type Position
     <br>    pos := aSnake.body[0]; pos.X = 32 => is different to aSnake.body[0].X=32
     <br><br>
 - Since there was no "defer way" in JS, `a proper exceptions and errors handling is still to be implemented` (probably by replacing the defers with a try catch)
